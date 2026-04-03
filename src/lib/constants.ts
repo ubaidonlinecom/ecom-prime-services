@@ -4,32 +4,28 @@ export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER.replace("+", "")}`
 
 export const VPS_PLANS = [
   {
-    name: "Basic",
-    price: "$19.99",
-    features: ["2 vCPU Cores", "4GB RAM", "80GB SSD Storage", "Unmetered Bandwidth", "1Gbps Port Speed", "Full Root Access"],
+    name: "Starter",
+    price: "$12",
+    features: ["1 vCPU Core", "2 GB RAM", "30 GB NVMe Storage", "High-Speed Network", "Full Root Access", "Instant Setup"],
+    note: "Best for beginners & light usage",
     popular: false,
     cta: "Order via WhatsApp",
   },
   {
-    name: "Standard",
-    price: "$39.99",
-    features: ["4 vCPU Cores", "8GB RAM", "160GB SSD Storage", "Unmetered Bandwidth", "1Gbps Port Speed", "Full Root Access"],
+    name: "Pro",
+    price: "$24",
+    features: ["2 vCPU Cores", "4 GB RAM", "50 GB NVMe Storage", "High-Speed Network", "Full Root Access", "Instant Setup"],
+    note: "Perfect for trading & business use",
     popular: true,
     cta: "Order via WhatsApp",
   },
   {
-    name: "Premium",
-    price: "$79.99",
-    features: ["8 vCPU Cores", "16GB RAM", "320GB NVMe Storage", "Unmetered Bandwidth", "10Gbps Port Speed", "Full Root Access"],
+    name: "Elite",
+    price: "$48",
+    features: ["4 vCPU Cores", "8 GB RAM", "100 GB NVMe Storage", "High-Speed Network", "Full Root Access", "Instant Setup"],
+    note: "Built for performance & heavy workloads",
     popular: false,
     cta: "Order via WhatsApp",
-  },
-  {
-    name: "Custom",
-    price: "Contact Us",
-    features: ["Up to 32 Cores", "Up to 128GB RAM", "Custom NVMe Storage", "High-Performance Network", "Dedicated Support", "Enterprise SLAs"],
-    popular: false,
-    cta: "Get Custom VPS",
   },
 ];
 

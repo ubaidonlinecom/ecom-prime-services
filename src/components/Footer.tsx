@@ -85,9 +85,9 @@ export function Footer() {
         <div className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-600">
           <p>© {new Date().getFullYear()} {SITE_NAME}. All rights reserved.</p>
           <div className="flex items-center gap-8">
-            <Link href="#" className="hover:text-blue-500 transition-colors">Privacy Policy</Link>
-            <Link href="#" className="hover:text-blue-500 transition-colors">Terms of Service</Link>
-            <Link href="#" className="hover:text-blue-500 transition-colors">Cookie Policy</Link>
+            <Link href="/privacy-policy" className="hover:text-blue-500 transition-colors">Privacy Policy</Link>
+            <Link href="/terms-of-service" className="hover:text-blue-500 transition-colors">Terms of Service</Link>
+            <Link href="/acceptable-use-policy" className="hover:text-blue-500 transition-colors">Acceptable Use Policy</Link>
           </div>
         </div>
       </div>

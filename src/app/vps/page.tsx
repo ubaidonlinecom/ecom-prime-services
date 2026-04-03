@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Server, Shield, Zap, Globe, Cpu, Terminal, Check, ArrowRight, MessageCircle } from "lucide-react";
 import { VPS_PLANS, WHATSAPP_LINK } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -20,7 +21,7 @@ export default function VPSPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-blue-500 font-bold tracking-widest text-xs uppercase"
           >
-            Infrastructure by Ecom Prime
+            GLOBAL INFRASTRUCTURE POWERED VPS
           </motion.span>
           <motion.h1
             initial={{ opacity: 0, y: 10 }}
@@ -28,7 +29,8 @@ export default function VPSPage() {
             transition={{ delay: 0.1 }}
             className="text-5xl md:text-7xl font-black text-white mt-4 mb-6 leading-[1.1]"
           >
-            Enterprise-Grade <span className="text-gradient">VPS Solutions</span>
+            High-Performance <span className="text-gradient">VPS</span> <br /> 
+            Built for Speed, Stability & Control
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 10 }}
@@ -36,14 +38,29 @@ export default function VPSPage() {
             transition={{ delay: 0.2 }}
             className="text-gray-400 text-lg md:text-xl leading-relaxed"
           >
-            Experience lightning-fast performance with our SSD-powered virtual private servers. Perfect for high-frequency trading, web hosting, and resource-intensive applications.
+            Get reliable, high-speed virtual servers designed for trading, development, and online business. 
+            Deploy instantly and take full control of your environment with powerful performance and global connectivity.
           </motion.p>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="flex flex-col sm:flex-row items-center gap-4 pt-10"
+          >
+            <a href="#plans" className="btn-primary w-full sm:w-auto text-center">
+              View Plans
+            </a>
+            <a href={WHATSAPP_LINK} className="flex items-center justify-center gap-2 px-8 py-4 border border-white/10 hover:bg-white/5 rounded-full text-white font-semibold transition-all w-full sm:w-auto">
+              Chat on WhatsApp
+            </a>
+          </motion.div>
         </div>
       </section>
 
       {/* Detailed Plans */}
-      <section className="max-w-7xl mx-auto px-6 mb-32">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <section id="plans" className="max-w-5xl mx-auto px-6 mb-32">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {VPS_PLANS.map((plan, idx) => (
             <motion.div
               key={plan.name}
@@ -57,7 +74,7 @@ export default function VPSPage() {
             >
               {plan.popular && (
                 <div className="absolute top-0 right-0 py-1 px-4 bg-blue-600 rounded-bl-xl rounded-tr-2xl text-[10px] font-black text-white tracking-widest uppercase">
-                  Best Value
+                  Most Popular
                 </div>
               )}
               
@@ -67,6 +84,7 @@ export default function VPSPage() {
                   <span className={cn("text-4xl font-black text-white", plan.price === "Contact Us" && "text-xl")}>{plan.price}</span>
                   {plan.price !== "Contact Us" && <span className="text-gray-500 text-sm">/mo</span>}
                 </div>
+                {plan.note && <p className="text-blue-500/80 text-xs font-bold mt-2 uppercase tracking-wide">{plan.note}</p>}
               </div>
 
               <ul className="space-y-4 mb-12 flex-grow">
@@ -99,18 +117,18 @@ export default function VPSPage() {
       <section className="bg-black/40 py-24 border-y border-white/5 mb-32">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-             <h2 className="text-3xl md:text-4xl font-black text-white mb-4">Under the Hood</h2>
-             <p className="text-gray-500">Uncompromising hardware and software standards.</p>
+             <h2 className="text-3xl md:text-4xl font-black text-white mb-4">Powerful Infrastructure, Built for Performance</h2>
+             <p className="text-gray-500">Experience high-speed, reliable VPS performance backed by advanced infrastructure and global connectivity.</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[
-              { title: "Pure NVMe Storage", desc: "Up to 10x faster than traditional SSDs for near-instant data access.", icon: Zap },
-              { title: "KVM Virtualization", desc: "Dedicated resources and isolated kernels for maximum stability.", icon: Server },
-              { title: "10Gbps Network", desc: "Ultra-low latency connections to global internet exchanges.", icon: Globe },
-              { title: "Advanced Firewalls", desc: "Enterprise-grade protection against DDoS and targeted attacks.", icon: Shield },
-              { title: "Full Root Access", desc: "Complete control over your environment with OS of your choice.", icon: Terminal },
-              { title: "Global DC Locations", desc: "Strategically located data centers for optimal performance.", icon: Globe },
+              { title: "High-Performance Processing", desc: "Run demanding applications smoothly with powerful processing designed for speed and stability.", icon: Cpu },
+              { title: "Ultra-Fast NVMe Storage", desc: "Enjoy lightning-fast data access and improved performance with next-generation NVMe storage.", icon: Zap },
+              { title: "Global Network Connectivity", desc: "Stay connected with high-speed network routing and low-latency performance across multiple regions.", icon: Globe },
+              { title: "Full Root Access", desc: "Get complete control over your server environment and configure it exactly the way you need.", icon: Terminal },
+              { title: "Instant Deployment", desc: "Launch your VPS within seconds and start working without delays or complex setup.", icon: Zap },
+              { title: "Secure & Reliable Environment", desc: "Built with strong security layers and stable infrastructure to ensure consistent performance.", icon: Shield },
             ].map((feature, idx) => (
               <div key={idx} className="flex gap-6 items-start">
                  <div className="w-12 h-12 rounded-xl bg-blue-600/10 flex items-center justify-center shrink-0">
@@ -130,13 +148,16 @@ export default function VPSPage() {
       <section className="max-w-7xl mx-auto px-6 mb-32">
          <div className="flex flex-col lg:flex-row gap-20 items-center">
             <div className="flex-1 space-y-8">
-               <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">Who is our VPS for?</h2>
+               <div>
+                  <h2 className="text-4xl md:text-5xl font-black text-white leading-tight mb-4">Who Is This VPS Perfect For?</h2>
+                  <p className="text-gray-500 text-lg">Built to support a wide range of use cases — from trading and development to online business operations.</p>
+               </div>
                <div className="space-y-6">
                   {[
-                    { title: "Forex & Stock Traders", desc: "Run your MT4/MT5 bots 24/7 with zero latency and consistent uptime." },
-                    { title: "Devs & SaaS Owners", desc: "Securely host your applications with full control over the tech stack." },
-                    { title: "Remote Work Teams", desc: "Provide high-speed remote desktops for your global workforce." },
-                    { title: "E-commerce Brands", desc: "Handle traffic spikes on eBay, Amazon, or Shopify with ease." },
+                    { title: "Forex & Crypto Traders", desc: "Run your trading platforms 24/7 with low latency and uninterrupted performance for better execution." },
+                    { title: "Developers & SaaS Builders", desc: "Deploy, test, and manage applications in a flexible environment with full control and scalability." },
+                    { title: "E-commerce & Online Businesses", desc: "Power your stores, tools, and automation systems with a reliable and high-speed VPS setup." },
+                    { title: "Remote Work & Automation", desc: "Access your virtual environment anytime, automate tasks, and manage workflows from anywhere." },
                   ].map((item, idx) => (
                     <div key={idx} className="glass p-6 hover:border-blue-500/30 transition-all group">
                        <h4 className="text-white font-bold mb-2 group-hover:text-blue-500 transition-colors">{item.title}</h4>
@@ -161,20 +182,81 @@ export default function VPSPage() {
          </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="max-w-5xl mx-auto px-6">
-         <div className="glass p-12 md:p-20 text-center relative overflow-hidden bg-gradient-to-tr from-blue-600/10 to-indigo-600/10">
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-8">Need a Custom Setup?</h2>
-            <p className="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">
-               We offer customized dedicated server resources and high-availability configurations for enterprise clients. Talk to our technical team today.
+      {/* Guides + FAQ Section */}
+      <section className="max-w-7xl mx-auto px-6 mb-40">
+         <div className="text-center mb-20 px-4">
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-6">Getting Started is Simple</h2>
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed">
+               Everything you need to get up and running quickly — even if you're new to VPS.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-               <a href={WHATSAPP_LINK} className="btn-primary flex items-center gap-2">
-                 <MessageCircle className="w-5 h-5" /> CHAT ON WHATSAPP
-               </a>
+         </div>
+
+         {/* Quick Guides */}
+         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
+            {[
+              { title: "1. Connect to Your VPS", desc: "Learn how to access your server using Remote Desktop in just a few simple steps." },
+              { title: "2. First-Time Setup", desc: "Basic setup instructions to get your VPS ready for your work environment." },
+              { title: "3. Choose the Right Plan", desc: "Not sure which plan fits your needs? Get simple guidance based on your use case." },
+            ].map((guide, idx) => (
+              <div key={idx} className="glass p-8 hover:border-blue-500/30 transition-all group">
+                 <h4 className="text-white font-bold text-lg mb-3 group-hover:text-blue-500 transition-colors uppercase tracking-wide">{guide.title}</h4>
+                 <p className="text-gray-500 text-sm leading-relaxed">{guide.desc}</p>
+                 <div className="mt-6 flex items-center gap-2 text-blue-500 text-xs font-bold tracking-widest uppercase cursor-pointer hover:gap-3 transition-all">
+                    GET GUIDE <ArrowRight size={14} />
+                 </div>
+              </div>
+            ))}
+         </div>
+
+         {/* FAQ */}
+         <div className="max-w-4xl mx-auto">
+            <h3 className="text-2xl font-black text-white mb-10 text-center uppercase tracking-widest text-blue-500/80">Common Questions</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+               {[
+                 { q: "Is this a managed VPS?", a: "No, this is a self-managed VPS. You have full control over your server setup and configuration." },
+                 { q: "How fast is delivery?", a: "Your VPS is typically ready within minutes after activation." },
+                 { q: "Can I upgrade later?", a: "Yes, you can upgrade your server resources anytime based on your needs." },
+                 { q: "Do you provide setup support?", a: "Basic guidance is available to help you get started, but full server management is not included." },
+               ].map((faq, idx) => (
+                 <div key={idx} className="space-y-3">
+                    <h4 className="text-white font-bold flex items-center gap-2">
+                       <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                       {faq.q}
+                    </h4>
+                    <p className="text-gray-500 text-sm pl-4 leading-relaxed border-l border-white/5">{faq.a}</p>
+                 </div>
+               ))}
             </div>
          </div>
       </section>
+
+      {/* CTA Section */}
+      <section className="max-w-5xl mx-auto px-6 mb-32">
+         <div className="glass p-12 md:p-20 text-center relative overflow-hidden bg-gradient-to-tr from-blue-600/10 to-indigo-600/10">
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-8 text-gradient">Ready to Get Started?</h2>
+            <p className="text-gray-400 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
+               Choose your plan and get your VPS up and running in minutes. Need help? Our team is here to guide you.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+               <a href="#plans" className="btn-primary w-full sm:w-auto text-center px-10">
+                 View Plans
+               </a>
+               <a href={WHATSAPP_LINK} className="flex items-center justify-center gap-2 px-8 py-4 border border-white/10 hover:bg-white/5 rounded-full text-white font-semibold transition-all w-full sm:w-auto">
+                 <MessageCircle className="w-5 h-5 shrink-0" /> Chat on WhatsApp
+               </a>
+            </div>
+            <p className="text-gray-500 text-xs font-bold mt-12 uppercase tracking-[0.2em]">
+               Fast setup • Secure environment • Reliable performance
+            </p>
+         </div>
+      </section>
+
+      {/* Policy Agreement */}
+      <div className="max-w-5xl mx-auto px-6 pb-12 text-center">
+         <p className="text-gray-600 text-[10px] leading-relaxed">
+            By using our VPS services, you agree to our <Link href="/terms-of-service" className="text-blue-500/60 hover:text-blue-500 transition-colors underline decoration-blue-500/20">Terms of Service</Link> and <Link href="/acceptable-use-policy" className="text-blue-500/60 hover:text-blue-500 transition-colors underline decoration-blue-500/20">Acceptable Use Policy</Link>.
+         </p>
+      </div>
     </main>
   );
 }

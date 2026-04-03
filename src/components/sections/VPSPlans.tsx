@@ -12,7 +12,7 @@ export function VPSPlans() {
       {/* Background Decor */}
       <div className="absolute top-1/2 left-1/2 w-full h-[600px] bg-blue-600/5 blur-[150px] rounded-full -translate-x-1/2 -translate-y-1/2 -z-10" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-5xl mx-auto px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16 px-4">
           <motion.span
             initial={{ opacity: 0, y: 10 }}
@@ -42,7 +42,7 @@ export function VPSPlans() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-4 sm:px-0">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-4 sm:px-0">
           {VPS_PLANS.map((plan, idx) => (
             <motion.div
               key={plan.name}
@@ -68,6 +68,7 @@ export function VPSPlans() {
                   <span className={cn("text-3xl font-black text-white", plan.price === "Contact Us" && "text-xl")}>{plan.price}</span>
                   {plan.price !== "Contact Us" && <span className="text-gray-500 text-xs">/month</span>}
                 </div>
+                {plan.note && <p className="text-blue-500/80 text-[10px] font-bold mt-2 uppercase tracking-wide">{plan.note}</p>}
               </div>
 
               <ul className="space-y-4 mb-10 flex-grow">
