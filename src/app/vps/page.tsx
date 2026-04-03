@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 
 export default function VPSPage() {
   return (
-    <main className="pt-32 pb-20 bg-background overflow-hidden">
+    <main className="relative pt-32 pb-20 bg-background min-h-screen overflow-x-hidden w-full max-w-full">
       {/* Background Decor */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-600/5 blur-[150px] rounded-full translate-x-1/2 -translate-y-1/2 -z-10" />
 

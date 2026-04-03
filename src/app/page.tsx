@@ -22,7 +22,7 @@ import { OTHER_SERVICES } from "@/lib/constants";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="relative min-h-screen overflow-x-hidden w-full max-w-full">
       {/* Hero Section */}
       <Hero />
 

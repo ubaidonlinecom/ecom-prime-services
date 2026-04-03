@@ -20,8 +20,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} bg-background text-foreground antialiased selection:bg-blue-600 selection:text-white`}>
+    <html lang="en" className="overflow-x-hidden">
+      <body className={`${inter.className} bg-background text-foreground antialiased selection:bg-blue-600 selection:text-white overflow-x-hidden`}>
         <Navbar />
         {children}
         <Footer />
